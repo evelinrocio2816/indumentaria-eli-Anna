@@ -1,13 +1,18 @@
 //fecha y tiempo actual
-console.log(new Date())
+
 let ahora= new Date();
 alert(ahora);
+alert(ahora.toLocaleString());
+console.log(new Date())
+
+
+//Funcion saludar!
 
 function Saludar (){
 let nombreIngresado= prompt ("ingresar Nombre");
 let apellidosIngresado=prompt ("ingresar Apellidos");
 alert ("el nombre ingresado es:" + nombreIngresado+ " "+ apellidosIngresado);
-console.log("Buenos Dias:" + nombreIngresado+ " "+apellidosIngresado);
+alert("Buenos Dias:" + nombreIngresado+ " "+apellidosIngresado);
 }
 Saludar();
 
@@ -40,7 +45,7 @@ console.log("su direccion es:" + direccion);
 //ARRAYS DE PRODUCTOS...
 const listaRopas= ["zapatillas","buzo Adida","conjunto psg","Buzo Nike","Remera","Joguin","jeans"]
 
-let aBuscar=prompt("Ingresa La ropa que quieras Buscar").toUpperCase();
+let aBuscar=prompt("Ingresa La ropa que quieras Buscar");
 let posicion=listaRopas.indexOf(aBuscar);
 if(posicion != -1){
     alert(aBuscar+" " +"esta en la lista en la posicion: " +posicion);
@@ -56,57 +61,50 @@ const Ropas=[
 
 {
     codigo:"1234555",
-    Articulo:"Remera",
-    Precio: 1090.00
+    articulo:"Remera",
+    precio: 1090.00
 },
 {
     codigo:"67578833",
-    Articulo: "conjunto PSG",
-    Precio:7500.00
+    articulo: "conjunto PSG",
+    precio:7500.00
 },
 {  
     codigo:"84784",
-    Articulo: "Buzo nikke",
-    Precio:2800.00
+    articulo: "Buzo nikke",
+    precio:2800.00
 },
 {
     codigo:"567883",
-    Articulo:"zapatillas",
-    Precio: 6790.00
+    articulo:"zapatillas",
+    precio: 6790.00
 },
 {
     codigo:"900336",
-    Articulo:"buzo Adida",
-    Precio:2850.00
+    articulo:"buzo Adida",
+    precio:2850.00
 },
 {
     codigo:"90365432",
-    Articulo: "jeans",
-    Precio: 4500.00
+    articulo: "jeans",
+    precio: 4500.00
 },
 {
     codigo:"456231",
-    Articulo:"joguin",
-    Precio: 3500.00
+    articulo:"joguin",
+    precio: 3500.00
 },
 ];
-console.table(Ropas) 
+console.table(Ropas);
 
+//ejemplo con Find
 
-let codigo=prompt("ingresa el codigo de ropa a Buscar");
-for(const Ropa of Ropas){
-    if(Ropas.codigo == codigo){
-        alert("Ropa encontrada!!")
-        console.log(Ropas);
-    }
+let codigoPreguntado=prompt("ingresa el codigo de ropa a Buscar");
+
+const ropaEncontrada = Ropas.find(ropa => ropa.codigo === codigoPreguntado);
+if(ropaEncontrada == undefined){
+   alert("Producto no encontrado");
 }
-//Paso el objeto a String..
-let aString= Ropas.forEach(Ropa=>Ropas.codigo+ "\n" +Ropas.Articulo +"\n"+ Ropas.Precio);
-
-alert(aString);
-
-let RopaEncontrada;
-RopaEncontrada=Ropas;
-console.log(" La ropa se encuentra en el deposito" + Ropas.indexOf(RopaEncontrada));
-
-
+else{
+   alert(`Codigo: ${ropaEncontrada.codigo} \narticulo: ${ropaEncontrada.articulo} \nprecio: ${ropaEncontrada.precio}`)
+}
